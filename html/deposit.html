@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Alke Wallet - Billetera Digital - Depositar</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="container login-box">
+      <h2>Depositar</h2>
+
+      <form id="depositForm">
+        <div class="form-group">
+          <label for="depositAmount">Monto a depositar:</label>
+          <input type="number" id="depositAmount" placeholder="Ingrese monto" required />
+        </div>
+
+        <button type="submit" class="boton">Realizar depósito</button>
+      </form>
+
+      <br />
+      <a href="menu.html" class="boton">Volver al Menú Principal</a>
+    </div>
+
+    <script>
+      document.getElementById('depositForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        let monto = parseInt(document.getElementById('depositAmount').value, 10);
+
+        if (monto >= 0) {
+          let saldoActual = parseInt(localStorage.getItem('saldo'), 10) || 0;
+          let nuevoSaldo = saldoActual + monto;
+
+          localStorage.setItem('saldo', nuevoSaldo);
+
+          window.location.href = 'menu.html';
+        } else {
+          alert('Ingrese un monto válido');
+        }
+      });
+    </script>
+  </body>
+</html>

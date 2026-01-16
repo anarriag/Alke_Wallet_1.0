@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alke Wallet - Billetera Digital - Menú Principal</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+
+  <body class="bg-light">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <i class="bi bi-wallet2 me-1"></i> Proyecto Alke Wallet - Billetera Digital
+        </a>
+
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <button
+              class="btn btn-warning btn-sm"
+              data-bs-toggle="modal"
+              data-bs-target="#logoutModal"
+            >
+              <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <div class="container d-flex justify-content-center mt-5">
+      <div class="card shadow p-4" style="max-width: 400px; width: 100%">
+        <h3 class="text-center mb-3"><i class="bi bi-grid-1x2-fill me-1"></i> Menú Principal</h3>
+
+        <div class="mb-3 text-center">
+          <label class="form-label"> <i class="bi bi-piggy-bank me-1"></i> Dinero en cuenta </label>
+          <h3 id="saldo" class="text-success">$0</h3>
+
+          <button
+            class="btn btn-outline-info btn-sm mt-2"
+            data-bs-toggle="modal"
+            data-bs-target="#saldoModal"
+          >
+            <i class="bi bi-eye"></i> Ver detalle
+          </button>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#accionesModal">
+            <i class="bi bi-lightning-fill"></i> Acciones Rápidas (Depositar Dinero y Enviar Dinero)
+          </button>
+
+          <button class="btn btn-secondary" onclick="redirigir('movimientos')">
+            <i class="bi bi-list-ul me-1"></i> Últimos Movimientos (Operaciones Realizadas)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL SALDO -->
+    <div class="modal fade" id="saldoModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><i class="bi bi-wallet-fill"></i> Detalle de Saldo</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body text-center">
+            <h2 id="saldoModalTexto" class="text-success"></h2>
+            <p class="text-muted">Saldo disponible actualmente</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL ACCIONES -->
+    <div class="modal fade" id="accionesModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><i class="bi bi-lightning"></i> Acciones</h5>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body d-grid gap-2">
+            <button class="btn btn-success" onclick="redirigir('depositar')">
+              <i class="bi bi-plus-circle"></i> Depositar
+            </button>
+
+            <button class="btn btn-primary" onclick="redirigir('enviar')">
+              <i class="bi bi-send"></i> Enviar Dinero
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL LOGOUT -->
+    <div class="modal fade" id="logoutModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-danger text-white">
+            <h5 class="modal-title"><i class="bi bi-exclamation-triangle"></i> Confirmar salida</h5>
+          </div>
+          <div class="modal-body">¿Estás seguro que deseas cerrar sesión?</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <a href="login.html" class="btn btn-danger">Salir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Lógica -->
+    <script>
+      let saldo = localStorage.getItem('saldo') || 0;
+      localStorage.setItem('saldo', saldo);
+
+      const formato = '$' + Number(saldo).toLocaleString('es-CL');
+      document.getElementById('saldo').textContent = formato;
+      document.getElementById('saldoModalTexto').textContent = formato;
+
+      function redirigir(destino) {
+        switch (destino) {
+          case 'depositar':
+            window.location.href = 'deposit.html';
+            break;
+          case 'enviar':
+            window.location.href = 'sendmoney.html';
+            break;
+          case 'movimientos':
+            window.location.href = 'transactions.html';
+            break;
+        }
+      }
+    </script>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary text-white text-center py-3 mt-5">
+      <div class="container">
+        <small>
+          &copy; 2026 - Diseñado por <strong>Antonio Benjamin Arriagada Llaupe.</strong> |
+          <a href="anarriag@gmail.com" class="text-white text-decoration-underline"
+            >anarriag@gmail.com</a
+          >
+          |
+          <a
+            href="https://www.linkedin.com/in/tu-perfil"
+            class="text-white text-decoration-underline"
+            target="_blank"
+            >LinkedIn</a
+          >
+        </small>
+      </div>
+    </footer>
+  </body>
+</html>

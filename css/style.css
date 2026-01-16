@@ -1,0 +1,140 @@
+/* Estilos Generales */
+/* Reset y estilos generales */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  /* Todos los elementos del header se ubican uno al lado del otro en una fila, en este caso el logo y el titulo */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* Color de fondo y de texto respectivamente */
+  background-color: blueviolet;
+  color: white;
+  text-align: center;
+}
+
+header img {
+  width: 100px;
+  margin-right: 15px;
+}
+
+/* Contenido principal */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Caja de login o bienvenida */
+.login-box {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Títulos */
+.login-box h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Separador */
+.login-box hr {
+  margin: 15px 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+/* Párrafos */
+.login-box p {
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Botón */
+.boton {
+  display: inline-block;
+  width: 100%;
+  padding: 12px;
+  background-color: #2575fc;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Título */
+.login-box h2 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Grupo de formulario */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Labels */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Inputs */
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #2575fc;
+  box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+}
+
+.boton:hover {
+  background-color: #1a5ed8;
+}
+
+footer {
+  background-color: blueviolet;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}

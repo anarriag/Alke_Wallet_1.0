@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alke Wallet - Billetera Digital - Login</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <!-- <body> Es la etiqueta principal del cuerpo del documento HTML. Todo lo que ve el usuario en la página (textos, imágenes, botones, formularios, etc.) va dentro del <body>-->
+  <!-- <body class="bg-light"  Asigna una clase CSS llamada bg-light, Esta clase no es de HTML puro, normalmente pertenece a Bootstrap. Hace que el fondo de la página sea gris claro.-->
+  <!-- Además, <body class="bg-light" Cambia el color de fondo de toda la página, Aplica un estilo predefinido de Bootstrap, Mejora la apariencia visual sin escribir CSS propio-->
+
+  <!-- <div class="container d-flex justify-content-center align-items-center vh-100"> crea un contenedor que centra su contenido tanto horizontal como verticalmente en toda la altura de la pantalla, usando Bootstrap.-->
+  <!-- <div class="container"> Crea un contenedor con: Ancho máximo según el tamaño de pantalla, Márgenes automáticos para centrarlo horizontalmente, Espaciado interno (padding).-->
+  <!-- ¿que hace d-flex?. Activa Flexbox (display: flex). Permite alinear fácilmente los elementos internos.-->
+  <!-- justify-content-center = Centra horizontalmente el contenido (eje X).-->
+  <!-- align-items-center: Centra verticalmente el contenido (eje Y).-->
+  <!-- vh-100: Significa 100% de la altura de la ventana del navegador (viewport height). Es decir, Hace que el contenedor ocupe toda la pantalla.-->
+
+  <body class="bg-light">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title"><i class="bi bi-wallet2 me-2"></i>Acceso al Sistema</h3>
+
+          <!-- Mensaje de error dinámico -->
+          <div id="mensaje" class="alert alert-danger text-center" role="alert"></div>
+
+          <form id="loginForm">
+            <!-- <form id="loginForm"> Crea un formulario HTML, Le da un identificador único, Permite controlarlo con JavaScript o CSS-->
+            <div class="mb-3">
+              <!-- <div class="mb-3"> ERstamos creando un contenedor (div) con un margen inferior, usando una clase de Bootstrap.-->
+              <!-- mb significa margin-bottom (margen inferior). 3: es un nivel de espaciado predefinido de Bootstrap.-->
+              <!-- usado para separar campos de formularios, Dar espacio entre filas de contenido, Mejorar la legibilidad visual, Evitar que los elementos queden “pegados" -->
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                placeholder="Ingresa tu email"
+                required
+              />
+              <!-- La sección anterior permite crear un campo de formulario para ingresar un correo electrónico, con etiqueta, validación básica y estilos de Bootstrap-->
+              <!-- <label for="email" class="form-label">Email</label> Muestra el texto “Email” como etiqueta del campo., for="email": Vincula la etiqueta con el <input> que tenga id="email".-->
+              <!-- Al hacer clic en la palabra Email, el cursor se coloca en el campo.-->
+              <!-- class="form-label": Es una clase de Bootstrap para dar estilo a la etiqueta.-->
+              <!-- <input type="email" ... required />    type="email" Indica que el dato debe tener formato de correo (usuario@dominio.com) y activa validación automática del navegador -->
+              <!-- id="email" es un Identificador único, Se usa para enlazar con el <label> y con JavaScript -->
+              <!-- class="form-control" es un clase de Bootstrap que: Hace el campo ancho y aplica bordes y estilos modernos. -->
+              <!-- placeholder="Ingresa tu email" Texto de ayuda dentro del campo. -->
+              <!-- required: Hace que el campo sea obligatorio y el formulario no se envía si está vacío enviando un mensaje de error en caso de que sea así-->
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control"
+                placeholder="Ingresa tu contraseña"
+                required
+              />
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            </div>
+          </form>
+
+          <p class="text-center mt-3">
+            ¿No tienes cuenta? <a href="construccion.html" class="text-primary">Regístrate aquí</a>
+          </p>
+        </div>
+      </div>
+      <!-- Todo lo que aparece dentro de estos div (de aqui hacia arriba) aparecerá Centrado horizontalmente, Centrado verticalmente, En el centro de la pantalla, Adaptable a distintos tamaños de pantalla -->
+      <!-- Se utiliza mucho en: Formularios de login (como en este caso), Mensajes de error o mantenimiento, Cajas de carga o confirmación -->
+      <!-- IMPORTANTE: Estas clases funcionan solo si Bootstrap está cargado en el proyecto.-->
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- JS de validación -->
+    <!-- <script src="/js/verificar_login.js"></script> -->
+    <script src="../js/verificar_login.js"></script>
+  </body>
+</html>

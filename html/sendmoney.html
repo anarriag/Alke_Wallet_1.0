@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alke Wallet - Billetera Digital - Enviar Dinero</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="../css/style.css" />
+
+    <style>
+      /* Estilos para el autocompletado */
+      #autocompleteList {
+        position: absolute;
+        z-index: 1000;
+        width: 100%;
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #ced4da;
+        border-top: none;
+        background: white;
+      }
+      #autocompleteList li {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+      #autocompleteList li:hover,
+      #autocompleteList li.active {
+        background-color: #0d6efd;
+        color: white;
+      }
+      .position-relative {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container d-flex justify-content-center my-5">
+      <div class="card shadow" style="max-width: 600px; width: 100%">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4"><i class="bi bi-send me-1"></i> Enviar Dinero</h3>
+
+          <!-- Buscador de contactos con autocompletado -->
+          <div class="mb-3 position-relative">
+            <label for="searchContact" class="form-label">
+              <i class="bi bi-search me-1"></i> Buscar en la agenda
+            </label>
+            <input
+              type="text"
+              class="form-control"
+              id="searchContact"
+              placeholder="Buscar contacto"
+              autocomplete="off"
+            />
+            <ul id="autocompleteList" class="list-group"></ul>
+          </div>
+
+          <hr />
+
+          <!-- Agregar contacto -->
+          <h5 class="mb-3"><i class="bi bi-person-plus me-1"></i> Agregar nuevo contacto</h5>
+          <form id="contactForm">
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre y Apellido</label>
+              <input type="text" class="form-control" id="nombre" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="cbu" class="form-label">CBU</label>
+              <input type="text" class="form-control" id="cbu" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="alias" class="form-label">Alias</label>
+              <input type="text" class="form-control" id="alias" required />
+            </div>
+
+            <div class="mb-3">
+              <label for="banco" class="form-label">Banco</label>
+              <input type="text" class="form-control" id="banco" required />
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save me-1"></i> Guardar contacto
+              </button>
+            </div>
+          </form>
+
+          <hr />
+
+          <!-- Lista de contactos -->
+          <h5 class="mb-3"><i class="bi bi-people me-1"></i> Contactos</h5>
+          <ul id="contactList" class="list-group mb-4"></ul>
+
+          <!-- Monto -->
+          <div class="mb-3">
+            <label for="monto" class="form-label">
+              <i class="bi bi-cash-stack me-1"></i> Monto a enviar
+            </label>
+            <input
+              type="number"
+              class="form-control"
+              id="monto"
+              placeholder="Ingrese el monto"
+              required
+            />
+          </div>
+
+          <!-- Acciones -->
+          <div class="d-grid gap-2">
+            <button type="button" id="sendMoneyBtn" class="btn btn-success">
+              <i class="bi bi-check-circle me-1"></i> Enviar dinero
+            </button>
+
+            <a href="menu.html" class="btn btn-secondary">
+              <i class="bi bi-arrow-left me-1"></i> Volver al Menú Principal
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script -->
+    <script src="../js/sendmoney.js"></script>
+  </body>
+</html>
